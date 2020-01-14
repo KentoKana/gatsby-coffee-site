@@ -1,0 +1,15 @@
+.main-header {
+    background-color: #000;
+    &__logo-container {
+        padding: 1em 0;
+    }
+    &__link {
+        &--logo {
+            color: #fff;
+            text-decoration: none;
+            font-size: 2em;
+            display: block;
+            height: inherit;
+        }
+    }
+}
