@@ -1,0 +1,11 @@
+@mixin transition-time($speed) {
+    @if (str-index($speed, 'slow')) {
+        transition: 0.8s ease all;
+    }
+    @else if (str-index($speed, 'moderate')) {
+        transition: 0.6s ease all;
+    }
+    @else {
+        transition: 0.3s ease all;
+    }
+}

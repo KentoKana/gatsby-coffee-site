@@ -6,7 +6,6 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -39,5 +38,14 @@ module.exports = {
         name: `data`,
       },
     },
+    `gatsby-transformer-remark`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/data/markdown/`,
+        name: `markdown-pages`,
+      },
+    },
+    `gatsby-plugin-sass`,
   ],
 }

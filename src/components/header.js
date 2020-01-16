@@ -2,8 +2,7 @@ import { useStaticQuery, Link, graphql } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
-import "../styles/global.scss"
-import "../styles/partials/main-header.scss"
+import "../styles/partials/_main-header.scss"
 
 const Header = ({ siteTitle }) => {
   const data = useStaticQuery(graphql`
@@ -20,7 +19,7 @@ const Header = ({ siteTitle }) => {
   `)
   return (
     <header className="main-header">
-      <div className="container main-header__container">
+      <nav className="container main-header__container">
         <div className="main-header__logo-container">
           <Link className="main-header__link--logo" to="/">
             {siteTitle}
@@ -39,7 +38,7 @@ const Header = ({ siteTitle }) => {
             })}
           </ul>
         </div>
-      </div>
+      </nav>
     </header>
   )
 }

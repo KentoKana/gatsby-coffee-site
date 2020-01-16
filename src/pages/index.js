@@ -2,8 +2,13 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-// import Image from "../components/image"
+import PostCard from "../components/postCard"
 import SEO from "../components/seo"
+import animations from "../components/animations"
+import { StyleRoot } from "radium"
+
+import "../styles/pages/index.scss"
+import { node } from "prop-types"
 
 const IndexPage = ({ data }) => {
   useStaticQuery(
@@ -15,7 +20,20 @@ const IndexPage = ({ data }) => {
           }
         }
         indexJson {
-          bannerText
+          bannerHeading
+        }
+        allMarkdownRemark {
+          edges {
+            node {
+              id
+              frontmatter {
+                title
+                path
+                featureImage
+              }
+              rawMarkdownBody
+            }
+          }
         }
       }
     `
@@ -23,9 +41,18 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <SEO title="Home" />
-      <h1>{data.indexJson.bannerText}</h1>
-      <div>
-        {/* <Image alt={"hello"} filename={data.allAuthorJson.edges[0].node.bannerImage}/> */}
+      <div className="index">
+        <div className="index__container">
+          <StyleRoot>
+            <div className="container" style={animations.fadeInLeft}>
+              {data.allMarkdownRemark.edges.map(post => (
+                <React.Fragment key={node.id}>
+                  <PostCard post={post} />
+                </React.Fragment>
+              ))}
+            </div>
+          </StyleRoot>
+        </div>
       </div>
     </Layout>
   )

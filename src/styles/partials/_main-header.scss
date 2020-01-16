@@ -1,0 +1,40 @@
+@import "../_colors";
+@import "../_mixins";
+.main-header {
+    background-color: #000;
+    .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__logo-container {
+        padding: 1em 0;
+    }
+    &__nav-items {
+        padding: 0;
+    }
+    &__nav-item {
+        margin-left: 10px;
+    }
+    &__link {
+        &--logo {
+            color: #fff;
+            text-decoration: none;
+            font-size: 2em;
+            display: block;
+            height: inherit;
+            font-family: 'Cinzel', serif;
+        }
+        &--item {
+            font-family: 'Gelasio', sans-serif;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.5em;
+            margin: 0;
+            &:hover {
+                color: $secondary;
+                @include transition-time('');
+            }
+        }
+    }
+}

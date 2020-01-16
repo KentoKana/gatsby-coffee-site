@@ -1,19 +1,29 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
-
-// You can delete this file if you're not using it
-// exports.createSchemaCustomization = ({ actions }) => {
-//   const { createTypes } = actions
-//   const typeDefs = `
-//       type AuthorJson implements Node @dontInfer {
-//         name: String!
-//         firstName: String!
-//         email: String!
-//         joinedAt: Date
-//       }
-//     `
-//   createTypes(typeDefs)
-// }
+const path = require(`path`)
+exports.createPages = async ({ actions, graphql, reporter }) => {
+  const { createPage } = actions
+  const postPageTemplate = path.resolve(`src/templates/PostPageTemplate.js`)
+  return graphql(`
+    {
+      allMarkdownRemark(limit: 100) {
+        edges {
+          node {
+            frontmatter {
+              path
+            }
+          }
+        }
+      }
+    }
+  `).then(res => {
+    if (res.errors) {
+      return Promise.reject(res.errors)
+    }
+    res.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      createPage({
+        path: node.frontmatter.path,
+        component: postPageTemplate,
+        context: {}, // additional data can be passed via context
+      })
+    })
+  })
+}

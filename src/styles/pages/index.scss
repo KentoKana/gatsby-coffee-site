@@ -1,0 +1,10 @@
+.index {
+    .container {
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+    &__container {
+        justify-content: center;
+    }
+}
