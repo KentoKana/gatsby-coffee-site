@@ -47,5 +47,11 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
+    {
+      resolve: "gatsby-plugin-express",
+      options: {
+        output: "config/gatsby-express.json",
+      },
+    },
   ],
 }

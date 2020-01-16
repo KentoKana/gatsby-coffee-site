@@ -26,21 +26,17 @@ const CoffeeDrinkTemplate = ({ data }) => {
     <Layout>
       <StyleRoot>
         <section className="post-page">
+          <div className="post-page__image-container" style={animations.fadeIn}>
+            <Image
+              className="post-page__feature-image"
+              filename={frontmatter.featureImage}
+              alt={frontmatter.title}
+            />
+            <h1 className="post-page__heading" style={animations.slideInUp}>
+              {frontmatter.title}
+            </h1>
+          </div>
           <div className="container">
-            <div
-              className="post-page__image-container"
-              style={animations.fadeIn}
-            >
-              <Image
-                className="post-page__feature-image"
-                filename={frontmatter.featureImage}
-                alt={frontmatter.title}
-              />
-              <h1 className="post-page__heading" style={animations.slideInUp}>
-                {frontmatter.title}
-              </h1>
-            </div>
-
             <div
               className="post-page__content"
               dangerouslySetInnerHTML={{ __html: html }}

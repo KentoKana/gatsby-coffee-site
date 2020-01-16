@@ -1,15 +1,14 @@
 .post-page {
     &__image-container {
         position: relative;
-        max-height: 250px;
+        max-height: 300px;
         overflow: hidden;
-        max-width: 900px;
+        max-width: 100%;
         margin: 0 auto;
         width: 100%;
     }
     &__feature-image {
         object-fit: cover;
-        filter: sepia(0.4);
     }
     &__heading {
         font-family: "Gelasio", sans-serif;
@@ -32,6 +31,9 @@
         max-width: 800px;
         h2 {
             font-family: "Gelasio", sans-serif;
+        }
+        p {
+            line-height: 2em;
         }
     }
 }

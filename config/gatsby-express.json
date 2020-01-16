@@ -1,0 +1,29 @@
+{
+  "redirects": [],
+  "pages": [
+    {
+      "path": "/americano"
+    },
+    {
+      "path": "/cappuccino"
+    },
+    {
+      "path": "/espresso"
+    },
+    {
+      "path": "/pour-over"
+    },
+    {
+      "path": "/404/"
+    },
+    {
+      "path": "/about/"
+    },
+    {
+      "path": "/"
+    },
+    {
+      "path": "/404.html"
+    }
+  ]
+}
