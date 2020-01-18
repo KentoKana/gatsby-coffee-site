@@ -1,0 +1,67 @@
+@import "../_colors";
+@import "../mixins";
+.post-page {
+    &__relevant-posts {
+        max-width: 500px;
+        font-family: "Gelasio", sans-serif;
+        margin-top: 2em;
+        width: 230px;
+        margin-left: 2em;
+        @media only screen and (max-width: 1200px) {
+            margin-left: 0;
+            width: 90%;
+            margin: 0 auto;
+            max-width: 700px;
+        }
+        h2 {
+            font-family: "Open Sans", sans-serif;
+            font-size: 2em;
+        }
+        &-list {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            list-style-type: none;
+        }
+    }
+    &__relevant-post {
+        &-list-item {
+            border: 1px solid $primary;
+            &:not(:first-child) {
+                border-top: none;
+            }
+            a {
+                text-align: center;
+                font-family: "Open Sans", sans-serif;
+                color: $primary;
+                text-decoration: none;
+                font-size: 1.2em;
+                padding: 1em 0;
+                display: block;
+                @include transition-time('');
+                &:hover {
+                    color: $secondary;
+                    background-color: $primary;
+                    @include transition-time('');
+                }
+            }
+        }
+    }
+}
+
+.light {
+    .post-page {
+        &__relevant-post {
+            &-list-item {
+                border-color: $secondary;
+                a {
+                    color: $secondary;
+                    &:hover {
+                        background-color: $secondary;
+                        color: $primary;
+                    }
+                }
+            }
+        }
+    }
+}

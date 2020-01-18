@@ -8,12 +8,10 @@ import animations from "../components/animations"
 import { StyleRoot } from "radium"
 
 import "../styles/pages/index.scss"
-import { node } from "prop-types"
-
 const IndexPage = ({ data }) => {
   useStaticQuery(
     graphql`
-      query AuthorQuery {
+      query IndexQuery {
         site {
           siteMetadata {
             title
@@ -22,7 +20,9 @@ const IndexPage = ({ data }) => {
         indexJson {
           bannerHeading
         }
-        allMarkdownRemark {
+        allMarkdownRemark(
+          filter: { frontmatter: { postType: { eq: "drink" } } }
+        ) {
           edges {
             node {
               id
@@ -45,8 +45,8 @@ const IndexPage = ({ data }) => {
         <div className="index__container">
           <StyleRoot>
             <div className="container" style={animations.fadeInLeft}>
-              {data.allMarkdownRemark.edges.map(post => (
-                <React.Fragment key={node.id}>
+              {data.allMarkdownRemark.edges.map((post, index) => (
+                <React.Fragment key={index}>
                   <PostCard post={post} />
                 </React.Fragment>
               ))}

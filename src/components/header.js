@@ -1,6 +1,8 @@
 import { useStaticQuery, Link, graphql } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import { ThemeToggler } from "gatsby-plugin-dark-mode"
+import { FaMoon, FaSun } from "react-icons/fa"
 
 import "../styles/partials/_main-header.scss"
 
@@ -37,6 +39,26 @@ const Header = ({ siteTitle }) => {
               )
             })}
           </ul>
+          <ThemeToggler>
+            {({ theme, toggleTheme }) => (
+              <label
+                className="main-header__theme-toggle-label"
+                title={`Switch To ${
+                  theme === "dark" ? "Light Theme" : "Dark Theme"
+                }`}
+              >
+                <input
+                  className="main-header__theme-toggle"
+                  type="checkbox"
+                  onChange={e =>
+                    toggleTheme(e.target.checked ? "dark" : "light")
+                  }
+                  checked={theme === "dark"}
+                />
+                {theme === "light" ? <FaMoon /> : <FaSun />}
+              </label>
+            )}
+          </ThemeToggler>
         </div>
       </nav>
     </header>

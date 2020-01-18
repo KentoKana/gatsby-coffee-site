@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css?family=Cinzel|Gelasio|Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Gelasio|Open+Sans|Pacifico&display=swap');
+@import "./colors";
+@import "./mixins";
 * {
     box-sizing: border-box;
 }
@@ -6,6 +8,57 @@
 body {
     margin: 0;
     font-family: "Open Sans", sans-serif;
+    background: $secondary;
+    color: $primary;
+    @include transition-time('');
+    .main-header {
+        &__theme-toggle {
+            @include transition-time('');
+            &-label {
+                @include transition-time('');
+                &:hover {
+                    color: #fff;
+                }
+            }
+        }
+    }
+    &.light {
+        background: #fff;
+        color: $secondary;
+        @include transition-time('');
+        .main-header {
+            background-color: $primary;
+            &__link {
+                &--item,
+                &--logo {
+                    color: $secondary;
+                    &:hover {
+                        color: #fff;
+                        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+                        @include transition-time('');
+                    }
+                }
+            }
+        }
+    }
+    &.dark {
+        .main-header {
+            background-color: $tertiary;
+            color: $primary;
+            // border-bottom: 2px solid $primary;
+            &__link {
+                &--item,
+                &--logo {
+                    color: $primary;
+                    &:hover {
+                        color: #fff;
+                        text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+                        @include transition-time('');
+                    }
+                }
+            }
+        }
+    }
 }
 
 .container {

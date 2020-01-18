@@ -1,0 +1,32 @@
+@import "../_colors";
+@import "../mixins";
+.footer {
+    margin-top: 1em;
+    height: 100px;
+    display: flex;
+    background-color: $tertiary;
+    color: #fff;
+    a {
+        color: $primary;
+        @include transition-time('');
+        &:hover {
+            color: #fff;
+            @include transition-time('');
+        }
+    }
+}
+
+.light {
+    .footer {
+        background-color: $primary;
+        color: $secondary;
+        a {
+            color: $secondary;
+            @include transition-time('');
+            &:hover {
+                color: #fff;
+                @include transition-time('');
+            }
+        }
+    }
+}

@@ -1,40 +1,54 @@
 @import "../_colors";
 @import "../_mixins";
 .main-header {
-    background-color: #000;
+    // background-color: $primary;
     .container {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
+    }
+    &__container {
+        height: 60px;
     }
     &__logo-container {
         padding: 1em 0;
     }
     &__nav-items {
         padding: 0;
+        list-style-type: none;
+        display: flex;
+        align-items: center;
+    }
+    &__nav-items-container {
+        display: flex;
+        align-items: center;
     }
     &__nav-item {
         margin-left: 10px;
     }
     &__link {
-        &--logo {
-            color: #fff;
-            text-decoration: none;
-            font-size: 2em;
-            display: block;
-            height: inherit;
-            font-family: 'Cinzel', serif;
-        }
+        &--logo,
         &--item {
-            font-family: 'Gelasio', sans-serif;
-            color: #fff;
             text-decoration: none;
             font-size: 1.5em;
-            margin: 0;
-            &:hover {
-                color: $secondary;
-                @include transition-time('');
-            }
+            display: block;
+            height: inherit;
+            font-family: 'Pacifico', serif;
+            font-weight: normal;
+            @include transition-time('');
+        }
+    }
+    &__theme-toggle {
+        opacity: 0;
+        position: absolute;
+        cursor: pointer;
+        &-label {
+            cursor: pointer;
+            font-size: 1.5em;
+            filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.5));
+            margin-left: 1em;
+            display: flex;
+            align-items: center;
         }
     }
 }

@@ -2,6 +2,7 @@ import React from "react"
 import Layout from "../components/layout"
 import { useStaticQuery, graphql } from "gatsby"
 import Image from "../components/image"
+import RelevantPosts from "../components/relevantPosts"
 
 import animations from "../components/animations"
 import { StyleRoot } from "radium"
@@ -16,12 +17,28 @@ const CoffeeDrinkTemplate = ({ data }) => {
           path
           title
           featureImage
+          postType
+        }
+      }
+      allMarkdownRemark(
+        filter: {
+          frontmatter: { postType: { eq: "drink" }, path: { ne: $path } }
+        }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              title
+              path
+            }
+          }
         }
       }
     }
   `)
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
+  console.log(frontmatter.postType)
   return (
     <Layout>
       <StyleRoot>
@@ -32,15 +49,21 @@ const CoffeeDrinkTemplate = ({ data }) => {
               filename={frontmatter.featureImage}
               alt={frontmatter.title}
             />
-            <h1 className="post-page__heading" style={animations.slideInUp}>
+            <h1 className="post-page__heading" style={animations.fadeInRight}>
               {frontmatter.title}
             </h1>
           </div>
           <div className="container">
             <div
               className="post-page__content"
+              style={animations.fadeInLeft}
               dangerouslySetInnerHTML={{ __html: html }}
             />
+            {frontmatter.postType !== "pages" ? (
+              <RelevantPosts data={data} style={animations.slideInUp} />
+            ) : (
+              <></>
+            )}
           </div>
         </section>
       </StyleRoot>
