@@ -10,6 +10,8 @@ Pour Over
 
 To put it simply, pour-over is a coffee brewing method that involes pouring water over coffee grounds sitting on top of a coffee filter (hence the name *'pour-over'*). 
 
+![Pour Over Image](./images/pour-over.jpg)
+
 ### Equipment
 
 Typically, equipment used to brew pour-over coffee involves the following items:
@@ -30,4 +32,3 @@ Pour-over is one of the most popular ways of brewing coffee amongst coffee enthu
 
 The fact is, every coffee bean you buy tastes different, based on where the coffee comes from, how it was farmed, when it was farmed, how it was roasted ... etc. In order to enjoy the unique tastes of the beans, you need a brewing method that gives you flexible control over the factors that affect the taste. 
 
-![Pour Over Image](./images/americano.jpg)

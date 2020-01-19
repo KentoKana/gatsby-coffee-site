@@ -1,5 +1,16 @@
 [{
-    "name": "About",
-    "url": "/about",
-    "location": "header"
-}]
+        "name": "Drinks",
+        "url": "/drinks",
+        "location": "header"
+    },
+    {
+        "name": "Equipment",
+        "url": "/equipment",
+        "location": "header"
+    },
+    {
+        "name": "About",
+        "url": "/about",
+        "location": "header"
+    }
+]

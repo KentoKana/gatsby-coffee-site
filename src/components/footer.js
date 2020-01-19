@@ -8,7 +8,7 @@ const Footer = () => {
       <div className="container">
         <div>
           © {new Date().getFullYear()},{" "}
-          <a href="https://www.gatsbyjs.org">Gatsby</a> Coffee Theme
+          <a href="https://www.gatsbyjs.org">Gatsby</a> Coffee Theme by Kento Kanazawa
         </div>
       </div>
     </footer>

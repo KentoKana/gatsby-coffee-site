@@ -10,6 +10,10 @@ body {
     font-family: "Open Sans", sans-serif;
     background: $secondary;
     color: $primary;
+    font-weight: normal;
+    main {
+        min-height: calc(100vh - 100px - 60px);
+    }
     @include transition-time('');
     .main-header {
         &__theme-toggle {

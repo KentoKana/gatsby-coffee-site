@@ -1,0 +1,4 @@
+[
+    { "path": "/drinks", "postType": "drink", "title": "Drinks" },
+    { "path": "/equipment", "postType": "equipment", "title": "Equipment" }
+]

@@ -1,46 +1,22 @@
 import React from "react"
 import Layout from "../components/layout"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import Image from "../components/image"
 import RelevantPosts from "../components/relevantPosts"
+import SEO from "../components/seo"
 
 import animations from "../components/animations"
 import { StyleRoot } from "radium"
 
 import "../styles/pages/post-page.scss"
 const CoffeeDrinkTemplate = ({ data }) => {
-  useStaticQuery(graphql`
-    query($path: String!) {
-      markdownRemark(frontmatter: { path: { eq: $path } }) {
-        html
-        frontmatter {
-          path
-          title
-          featureImage
-          postType
-        }
-      }
-      allMarkdownRemark(
-        filter: {
-          frontmatter: { postType: { eq: "drink" }, path: { ne: $path } }
-        }
-      ) {
-        edges {
-          node {
-            frontmatter {
-              title
-              path
-            }
-          }
-        }
-      }
-    }
-  `)
   const { markdownRemark } = data
+  const { allPagesJson } = data
   const { frontmatter, html } = markdownRemark
-  console.log(frontmatter.postType)
   return (
     <Layout>
+      <SEO title={frontmatter.title} />
+
       <StyleRoot>
         <section className="post-page">
           <div className="post-page__image-container" style={animations.fadeIn}>
@@ -59,8 +35,11 @@ const CoffeeDrinkTemplate = ({ data }) => {
               style={animations.fadeInLeft}
               dangerouslySetInnerHTML={{ __html: html }}
             />
-            {frontmatter.postType !== "pages" ? (
-              <RelevantPosts data={data} style={animations.slideInUp} />
+            <RelevantPosts data={data} style={animations.slideInUp} />
+          </div>
+          <div className="container post-page__link-container">
+            {allPagesJson.edges.length !== 0 ? (
+              <Link to={allPagesJson.edges[0].node.path}>Back To List</Link>
             ) : (
               <></>
             )}
@@ -70,5 +49,41 @@ const CoffeeDrinkTemplate = ({ data }) => {
     </Layout>
   )
 }
+
+export const postPageQuery = graphql`
+  query($path: String!, $postType: String!) {
+    allPagesJson(filter: { postType: { eq: $postType, ne: "page" } }) {
+      edges {
+        node {
+          path
+        }
+      }
+    }
+    markdownRemark(frontmatter: { path: { eq: $path } }) {
+      html
+      frontmatter {
+        path
+        title
+        featureImage
+        postType
+      }
+    }
+    allMarkdownRemark(
+      filter: {
+        frontmatter: { postType: { eq: $postType }, path: { ne: $path } }
+      }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            path
+            postType
+          }
+        }
+      }
+    }
+  }
+`
 
 export default CoffeeDrinkTemplate

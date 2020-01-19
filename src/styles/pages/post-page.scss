@@ -83,4 +83,12 @@
             object-fit: cover;
         }
     }
+    &__link-container {
+        &.container {
+            justify-content: flex-start;
+            a {
+                color: #fff;
+            }
+        }
+    }
 }

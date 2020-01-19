@@ -5,7 +5,7 @@ import { StyleRoot } from "radium"
 import "../styles/partials/_relevant-posts.scss"
 
 const RelevantPosts = ({ data, style }) => {
-  if (data) {
+  if (data.allMarkdownRemark.edges.length !== 0) {
     return (
       <StyleRoot>
         <aside className="post-page__relevant-posts" style={style}>

@@ -1,0 +1,20 @@
+.post-list-page {
+    h1 {
+        font-family: "Pacifico", cursive;
+        font-size: 3em;
+        font-weight: normal;
+        &.container {
+            justify-content: center;
+            margin: 0.5em auto;
+        }
+    }
+    .container {
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+    &__container {
+        justify-content: center;
+        margin: 2em 0;
+    }
+}
