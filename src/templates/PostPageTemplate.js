@@ -35,7 +35,11 @@ const CoffeeDrinkTemplate = ({ data }) => {
               style={animations.fadeInLeft}
               dangerouslySetInnerHTML={{ __html: html }}
             />
-            <RelevantPosts data={data} style={animations.slideInUp} />
+            {frontmatter.postType !== "pages" ? (
+              <RelevantPosts data={data} style={animations.slideInUp} />
+            ) : (
+              <></>
+            )}
           </div>
           <div className="container post-page__link-container">
             {allPagesJson.edges.length !== 0 ? (
