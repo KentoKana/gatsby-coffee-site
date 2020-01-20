@@ -65,6 +65,7 @@ const Header = ({ siteTitle }) => {
         </div>
         <div className="main-header__nav-items-container">
           <StyleRoot>
+          {/* REFACTOR PLEASE!!! */}
             <MediaQuery minDeviceWidth={671}>
               <ul className={menuItemClassName} style={mobileAnimation}>
                 {data.allNavigationJson.edges.map((item, index) => {
@@ -106,6 +107,7 @@ const Header = ({ siteTitle }) => {
               </ul>
             </MediaQuery>
           </StyleRoot>
+          {/* IMPORT AS SEPARATE COMPONENT */}
           <ThemeToggler>
             {({ theme, toggleTheme }) => (
               <label
