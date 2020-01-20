@@ -41,13 +41,13 @@ const CoffeeDrinkTemplate = ({ data }) => {
               <></>
             )}
           </div>
-          <div className="container post-page__link-container">
+          {/* <div className="container post-page__link-container">
             {allPagesJson.edges.length !== 0 ? (
               <Link to={allPagesJson.edges[0].node.path}>Back To List</Link>
             ) : (
               <></>
             )}
-          </div>
+          </div> */}
         </section>
       </StyleRoot>
     </Layout>
